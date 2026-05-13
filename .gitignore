@@ -1,0 +1,129 @@
+# ClinicalIntel root ignore rules
+#
+# Keep source code, README.md, setup.md, and configuration examples commit-ready.
+# Ignore local secrets, environments, dependency folders, logs, caches, build
+# outputs, generated temporary files, and large ML model binaries.
+
+# ---------------------------------------------------------------------------
+# Environment secrets
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# ---------------------------------------------------------------------------
+# Python backend local files
+# ---------------------------------------------------------------------------
+backend/.venv/
+backend/venv/
+backend/env/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/.coverage
+backend/htmlcov/
+backend/*.pyc
+backend/**/*.pyc
+
+# ---------------------------------------------------------------------------
+# Node / React frontend local files
+# ---------------------------------------------------------------------------
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+frontend/.vitest/
+frontend/coverage/
+frontend/*.local
+
+# ---------------------------------------------------------------------------
+# Logs and runtime output
+# ---------------------------------------------------------------------------
+logs/
+*.log
+*.err
+backend/*.log
+backend/*.err
+frontend/*.log
+frontend/*.err
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---------------------------------------------------------------------------
+# Generated documents, temporary scripts, and local scratch output
+# ---------------------------------------------------------------------------
+Document/
+image/
+images/
+tmp/
+temp/
+.tmp/
+.temp/
+output/
+
+# ---------------------------------------------------------------------------
+# Editor and OS files
+# ---------------------------------------------------------------------------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ---------------------------------------------------------------------------
+# Python packaging and notebook caches
+# ---------------------------------------------------------------------------
+build/
+dist/
+*.egg-info/
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# ML artifacts
+# ---------------------------------------------------------------------------
+# Model files are intentionally not committed to GitHub because model weights
+# exceed normal GitHub file limits and the repository has no LFS budget.
+# After cloning, copy the exported runtime model into backend/final_best_model.
+ML_Model/
+backend/final_best_model/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.onnx
+*.joblib
+*.pkl
+checkpoint-*/
+**/checkpoint-*/
+**/runs/
+**/wandb/
+
+# ---------------------------------------------------------------------------
+# Large local archives and backups
+# ---------------------------------------------------------------------------
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.bak
+*.backup
